@@ -8,12 +8,12 @@ const divProduct = document.querySelector("#products");
 const checkAvl = document.querySelector("#checkAvailable");
 checkAvl.addEventListener("click", queryProduct);
 
+
 function queryProduct() {
   let productAll = document.getElementsByClassName("sProduct"); // Get Product ทั้งหมดที่อยู่ใน HTML
   if (checkAvl.checked){ // เช็ค Status ของปุ่ม
     for (let product of productAll) { // Loop
       let name = product.textContent.toLocaleLowerCase(); // กำหนดให้ค่าที่ลูปกลายเป็นตัวพิมพ์เล็ก
-      console.log(name)
       if(name.includes("stock: 0")){ //เช็คหาคำว่ามีตรงกับคำว่า stock: 0 
         product.style.display = "none"; //ถ้า True จะไม่แสดงสินค้าที่หมด Stock
       } else {
@@ -27,6 +27,7 @@ function queryProduct() {
   }
     localStorage.setItem("Checkbox", JSON.stringify(checkAvl.checked)); // เก็บค่าของปุ่มลงใน LocalStorage
 }
+
 
 function onloadQuery() {
   let getBtnCheck = JSON.parse(localStorage.getItem("Checkbox")); // ดึง Checkbox จากใน localStorage และแปลงค่ากลับมา
