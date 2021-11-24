@@ -1,5 +1,5 @@
 import { products } from "./product-list.js";
-import { addCart } from "./cart.js";
+import { cartFn } from "./cart.js";
 
 export function showProduct(productList) {
   let outerDiv;
@@ -55,7 +55,7 @@ export function showProduct(productList) {
       btn.setAttribute("class", "btn btn-primary mw-100");
       btn.setAttribute("target", "_blank");
       btn.appendChild(document.createTextNode("Add to cart"));
-      btn.addEventListener("click", addCart, false);
+      btn.addEventListener("click", cartFn.addCart, false);
     }
     content.appendChild(btn);
     innerDiv.appendChild(content);
